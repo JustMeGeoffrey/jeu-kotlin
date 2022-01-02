@@ -1,5 +1,5 @@
 class Enemy {
-    private var baseHp = 400
+    private var baseHp = 100
     private var baseMp = 100
     private var baseAtk = 20
     private var currentHp: Int
@@ -14,7 +14,7 @@ class Enemy {
 
     fun basicAttack(player: Player) {
         player.setCurrentHp(-baseAtk)
-        println("L'ennemi a perdu $baseAtk HP!")
+        println("Vous perdez $baseAtk HP!")
     }
 
     fun setCurrentHp(value: Int) {
