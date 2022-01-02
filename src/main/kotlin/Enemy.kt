@@ -1,13 +1,33 @@
 class Enemy {
-    private var hpCurrent: Int
-    private var mpCurrent: Int
-    private val hpMax = 100
-    private val mpMax = 50
-    private var atk = 5
+    private var baseHp = 400
+    private var baseMp = 100
+    private var baseAtk = 20
+    private var currentHp: Int
+    private var currentMp: Int
+    private var currentAtk: Int
 
     init {
-        hpCurrent = hpMax
-        mpCurrent = hpMax
+        currentHp = baseHp
+        currentMp = baseMp
+        currentAtk = baseAtk
+    }
+
+    fun basicAttack(player: Player) {
+        player.setCurrentHp(-baseAtk)
+        println("L'ennemi a perdu $baseAtk HP!")
+    }
+
+    fun setCurrentHp(value: Int) {
+        currentHp += value
+    }
+    fun getCurrentHp(): Int {
+        return currentHp
+    }
+    fun setCurrentMp(value: Int) {
+        currentMp += value
+    }
+    fun getCurrentMp(): Int {
+        return currentMp
     }
 
 }
