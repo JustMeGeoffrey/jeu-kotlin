@@ -1,21 +1,14 @@
-class Enemy {
-    private var baseHp = 100
-    private var baseMp = 100
-    private var baseAtk = 20
-    private var currentHp: Int
-    private var currentMp: Int
-    private var currentAtk: Int
+abstract class Enemy() {
+    internal abstract var baseAtk: Int
+    internal abstract var baseHp: Int
+    internal abstract var baseDef: Int
+    internal abstract var baseMp: Int
+    internal var currentHp = 0
+    internal var currentAtk = 0
+    internal var currentMp = 0
+    internal var currentDef = 0
 
-    init {
-        currentHp = baseHp
-        currentMp = baseMp
-        currentAtk = baseAtk
-    }
-
-    fun basicAttack(player: Player) {
-        player.setCurrentHp(-baseAtk)
-        println("Vous perdez $baseAtk HP!")
-    }
+    open fun basicAttack(player: Player) {}
 
     fun setCurrentHp(value: Int) {
         currentHp += value
@@ -28,6 +21,18 @@ class Enemy {
     }
     fun getCurrentMp(): Int {
         return currentMp
+    }
+    fun setCurrentDef(newDef: Int) {
+        currentDef = newDef
+    }
+    fun getCurrentDef(): Int {
+        return currentDef
+    }
+    fun setCurrentAtk(newAtk: Int) {
+        currentAtk = newAtk
+    }
+    fun getCurrentAtk(): Int {
+        return currentAtk
     }
 
 }
